@@ -11,6 +11,7 @@ export class ServersComponent implements OnInit {
   serverName: string = ''
   username: string = ''
   isServerCreated: boolean = false
+  servers: string[] = ['server1', 'server2']
 
   constructor() { }
 
@@ -24,6 +25,7 @@ export class ServersComponent implements OnInit {
   onCreateServer(): void {
     this.isServerCreated = true
     this.serverCreationStatus = `A server with name ${this.serverName} was created`
+    this.servers.push(this.serverName)
   }
 
   onUpateServerName(e: Event): void {
