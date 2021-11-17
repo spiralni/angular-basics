@@ -9,6 +9,8 @@ export class ServersComponent implements OnInit {
   allowNewServer: boolean = true
   serverCreationStatus: string = "No servers where created"
   serverName: string = ''
+  username: string = ''
+  isServerCreated: boolean = false
 
   constructor() { }
 
@@ -20,10 +22,15 @@ export class ServersComponent implements OnInit {
   }
 
   onCreateServer(): void {
-    this.serverCreationStatus = "A server was created"
+    this.isServerCreated = true
+    this.serverCreationStatus = `A server with name ${this.serverName} was created`
   }
 
   onUpateServerName(e: Event): void {
     this.serverName = (<HTMLInputElement>e.target).value
+  }
+
+  resetUserName(): void { 
+    this.username = '' 
   }
 }

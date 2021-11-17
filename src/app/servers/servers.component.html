@@ -1,5 +1,15 @@
-<label for="s">Server name</label>
+<label for="username">User name</label>
+<input type="text" class="form-control" [(ngModel)]="username">
+<p>{{username}}</p>
+<button class="btn btn-success" 
+    [disabled]="username.trim().length < 1"
+    (click)="resetUserName()">RESET</button>
+
+<hr />
+
+<label for="serve-name">Server name</label>
 <input type="text" 
+    id="server-name"
     class="form-control" 
     [(ngModel)]="serverName">
 
@@ -12,8 +22,11 @@
     >
     Add server
 </button>
-<p>
-    {{serverCreationStatus}}
+<p *ngIf="isServerCreated">
+    Server was created. Server name: {{serverName}}
+</p>
+<p *ngIf="!isServerCreated">
+    No server created yet
 </p>
 <app-server></app-server>
 <app-server></app-server>
